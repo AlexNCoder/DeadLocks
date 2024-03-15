@@ -1,20 +1,19 @@
 #pragma once
 #include "simpleclass.h"
-#include <QThread>
-#include <QString>
+//#include <QThread>
+//#include <QString>
 
 /*!
  * \brief Класс, отвечающий за работу с общими ресурсами из потоков
  */
-class Runner : public QThread
+class Runner// : public QThread
 {
-    Q_OBJECT
+//    Q_OBJECT
 
     public:
-        Runner(
-                SimpleClass &objA,
+        Runner(SimpleClass &objA,
                 SimpleClass &objB,
-                QString threadName,
+                std::string threadName,
                 bool abLckOrder = true);
 
         void run() override;

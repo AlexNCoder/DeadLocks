@@ -1,34 +1,36 @@
 #include "simpleclass.h"
-#include <QThread>
-#include <QDebug>
-#include <QApplication>
+//#include <QThread>
+//#include <QDebug>
+//#include <QApplication>
+#include <thread>
 
-SimpleClass::SimpleClass(QString text, bool needCheckLock)
+SimpleClass::SimpleClass(std::string text, bool needCheckLock)
     :m_text(text),
       m_needCheckLock(needCheckLock)
 {
 }
 
-void SimpleClass::f(QString threadName)
+void SimpleClass::f()
 {
     if (m_needCheckLock)
     {
-        if (!m_mutex.tryLock())
+        if (!m_mutex.try_lock())
         {
             return;
         }
         m_mutex.unlock();
     }
-    m_locker.reset(new QMutexLocker(&m_mutex));
+//    m_locker.reset(new QMutexLocker(&m_mutex));
 
-    emit echo(
-                (QStringList()
-                 << m_text
-                 << " was locked from "
-                 << threadName
-                 << "\n")
-                .join(""));
-    qApp->processEvents();
-    QThread::sleep(3);
+//    emit echo(
+//                (QStringList()
+//                 << m_text
+//                 << " was locked from "
+//                 << threadName
+//                 << "\n")
+//                .join(""));
+//    qApp->processEvents();
+
+    std::this_thread::sleep_for(std::chrono::seconds(3));
     //    m_mutex.unlock();
 }

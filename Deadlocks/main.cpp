@@ -1,10 +1,10 @@
 #include "deadlocks.h"
-#include <QApplication>
-#include <QDebug>
+//#include <QApplication>
+//#include <QDebug>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+//    QApplication a(argc, argv);
     Deadlocks w;
 //    w.show();
 
@@ -18,5 +18,9 @@ int main(int argc, char *argv[])
 
     w.tryMakeDeadLock(true);
 
-    return a.exec();
+    while(1)
+    {
+
+    }
+//    return a.exec();
 }

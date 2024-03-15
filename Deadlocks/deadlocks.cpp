@@ -1,7 +1,7 @@
 #include "deadlocks.h"
 #include "ui_deadlocks.h"
-#include <QThread>
-#include <QDebug>
+//#include <QThread>
+//#include <QDebug>
 
 Deadlocks::Deadlocks(QWidget *parent) :
     QMainWindow(parent),

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QMainWindow>
+//#include <QMainWindow>
 #include "runner.h"
 
 namespace Ui
