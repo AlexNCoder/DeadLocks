@@ -1,6 +1,5 @@
 #pragma once
 
-//#include <QMainWindow>
 #include "runner.h"
 
 namespace Ui
@@ -11,12 +10,11 @@ namespace Ui
 /*!
  * \brief Окно приложения
  */
-class Deadlocks : public QMainWindow
+class Deadlocks
 {
-    Q_OBJECT
 
 public:
-    explicit Deadlocks(QWidget *parent = nullptr);
+    explicit Deadlocks();
     ~Deadlocks();
 
     /*!
@@ -26,15 +24,4 @@ public:
      * \details Флаг needCheckLocking определяет режим воспроизведения дедлока
      */
     void tryMakeDeadLock(bool needCheckLocking = true);
-
-private slots:
-    void on_pushButton_clicked();
-    void slotEcho(QString msg);
-
-    void on_clrOutputBtn_clicked();
-
-private:
-    Ui::Deadlocks *m_ui;
 };
-
-//#endif // DEADLOCKS_H
