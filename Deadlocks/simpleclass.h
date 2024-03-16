@@ -1,7 +1,4 @@
 #pragma once
-//#include <QMutex>
-//#include <QString>
-//#include <QSharedPointer>
 #include <string>
 #include <mutex>
 #include <memory>
@@ -9,20 +6,14 @@
 /*!
  * \brief Класс ресурса
  */
-class SimpleClass// : public QObject
+class SimpleClass
 {
-//    Q_OBJECT
-
     public:
-        SimpleClass(std::string text, bool needCheckLock = true);
+        SimpleClass(bool needCheckLock = true);
 
-        void f();
-
-//    signals:
-//        void echo(QString msg);
+        void f(std::string threadName);
 
     private:
-        std::string m_text;
         std::mutex m_mutex;
         bool m_needCheckLock = true;
         std::unique_ptr<std::lock_guard<std::mutex>> m_locker;

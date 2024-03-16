@@ -1,7 +1,7 @@
 #include "runner.h"
-//#include <QThread>
 
-Runner::Runner(SimpleClass &objA,
+Runner::Runner(
+        SimpleClass &objA,
         SimpleClass &objB,
         std::string threadName,
         bool abLckOrder)
