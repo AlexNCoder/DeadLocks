@@ -20,7 +20,8 @@ void SimpleClass::f()
         }
         m_mutex.unlock();
     }
-//    m_locker.reset(new QMutexLocker(&m_mutex));
+    m_mutex.lock();
+    m_locker.reset(new std::lock_guard<std::mutex>(m_mutex));
 
 //    emit echo(
 //                (QStringList()

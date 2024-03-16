@@ -4,6 +4,7 @@
 //#include <QSharedPointer>
 #include <string>
 #include <mutex>
+#include <memory>
 
 /*!
  * \brief Класс ресурса
@@ -24,4 +25,5 @@ class SimpleClass// : public QObject
         std::string m_text;
         std::mutex m_mutex;
         bool m_needCheckLock = true;
+        std::unique_ptr<std::lock_guard<std::mutex>> m_locker;
 };
