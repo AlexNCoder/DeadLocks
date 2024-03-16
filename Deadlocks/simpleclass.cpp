@@ -17,10 +17,10 @@ void SimpleClass::f(std::string threadName)
         {
             return;
         }
-        m_mutex.unlock();
+//        m_mutex.unlock();
     }
     m_mutex.lock();
-    m_locker.reset(new std::lock_guard<std::mutex>(m_mutex));
+//    m_locker.reset(new std::lock_guard<std::mutex>(m_mutex));
 
     std::cout
             << m_objName << " was locked from "
