@@ -10,7 +10,7 @@ SimpleClass::SimpleClass(std::string objName, bool verbose)
 
 void SimpleClass::f()
 {
-//    std::this_thread::sleep_for(std::chrono::seconds(3));
+    std::this_thread::sleep_for(std::chrono::seconds(3));
 }
 
 void SimpleClass::lock(std::string threadName)

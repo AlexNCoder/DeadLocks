@@ -24,5 +24,5 @@ int main(int argc, char *argv[])
     }
 
     dlk.tryMakeDeadLock(needCheck, verbose);
-    while(1);
+//    while(1); // Вечный пустой цикл тоже необходимо отличать от дедлока
 }
