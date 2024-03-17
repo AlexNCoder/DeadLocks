@@ -11,9 +11,9 @@ Deadlocks::~Deadlocks()
 {
 }
 
-void Deadlocks::tryMakeDeadLock(bool needCheckLocking)
+void Deadlocks::tryMakeDeadLock(bool needCheckLocking, bool verbose)
 {
-    SimpleClass objA("objA"), objB("objB");
+    SimpleClass objA("objA", verbose), objB("objB", verbose);
 
     Runner th1Runner(objA, objB, "thread 1", true, needCheckLocking);
     Runner th2Runner(objA, objB, "thread 2", false, needCheckLocking);
@@ -23,5 +23,8 @@ void Deadlocks::tryMakeDeadLock(bool needCheckLocking)
     t1.join();
     t2.join();
 
-    std::cout << "\nAll threads were finished!\n";
+    if (verbose)
+    {
+        std::cout << "\nAll threads were finished!\n";
+    }
 }

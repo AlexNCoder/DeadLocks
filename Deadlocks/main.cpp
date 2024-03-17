@@ -1,18 +1,28 @@
 #include "deadlocks.h"
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
-    Deadlocks w;
+    Deadlocks dlk;
+    bool needCheck = true;
+    bool verbose = false;
 
     if (argc > 1)
     {
-        if (std::string(argv[1]) == "-d")
+        if (std::string(argv[1]) == "0")
         {
-            w.tryMakeDeadLock(false);
-            while(1);
+            needCheck = false;
+        }
+
+        if (argc > 2)
+        {
+            if (std::string(argv[2]) != "0")
+            {
+                verbose = true;
+            }
         }
     }
 
-    w.tryMakeDeadLock(true);
+    dlk.tryMakeDeadLock(needCheck, verbose);
     while(1);
 }

@@ -20,8 +20,9 @@ public:
     /*!
      * \brief Запуск конкурирующих потоков
      * \param needCheckLocking Флаг необходимости проверки блокировок ресурсов
+     * \param verbose Флаг, включающий вывод программы на консоль
      *
      * \details Флаг needCheckLocking определяет режим воспроизведения дедлока
      */
-    void tryMakeDeadLock(bool needCheckLocking = true);
+    void tryMakeDeadLock(bool needCheckLocking = true, bool verbose = false);
 };
