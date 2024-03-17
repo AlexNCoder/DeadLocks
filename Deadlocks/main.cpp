@@ -9,13 +9,10 @@ int main(int argc, char *argv[])
         if (std::string(argv[1]) == "-d")
         {
             w.tryMakeDeadLock(false);
+            while(1);
         }
     }
 
     w.tryMakeDeadLock(true);
-
-    while(1)
-    {
-
-    }
+    while(1);
 }

@@ -8,11 +8,11 @@ class Runner
 {
 
     public:
-        Runner(
-                SimpleClass &objA,
+        Runner(SimpleClass &objA,
                 SimpleClass &objB,
                 std::string threadName,
-                bool abLckOrder = true);
+                bool abLckOrder = true,
+                bool needCheckLock = true);
 
         void run();
 
@@ -24,4 +24,5 @@ class Runner
         SimpleClass &m_objB;
         bool m_abLckOrder = false;
         std::string m_threadName;
+        bool m_needCheckLock = true;
 };

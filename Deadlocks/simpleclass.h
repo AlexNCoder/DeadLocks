@@ -9,13 +9,16 @@
 class SimpleClass
 {
     public:
-        SimpleClass(std::string objName, bool needCheckLock = true);
+        SimpleClass(
+                std::string objName);
 
-        void f(std::string threadName);
+        void f();
+        void lock(std::string threadName);
+        bool tryLock(std::string threadName);
+        void unLock(std::string threadName);
 
     private:
         std::mutex m_mutex;
         std::string m_objName;
-        bool m_needCheckLock = true;
-        std::unique_ptr<std::lock_guard<std::mutex>> m_locker;
+//        std::unique_ptr<std::lock_guard<std::mutex>> m_locker;
 };
